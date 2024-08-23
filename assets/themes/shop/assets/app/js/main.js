@@ -71,9 +71,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (data) {
       setCountInCart(+data);
     }
-    if (data == 0) {
-      console.log(false);
-    }
   }
 });
 function setCountInCart(result) {
