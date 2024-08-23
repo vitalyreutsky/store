@@ -1,6 +1,10 @@
 import { validationForm } from "../functions/validation-form.js";
 
+const globalForm = document.querySelector("form");
 const registerSubmitForm = document.querySelector(".register-submit-form");
+const registrationSuccessMessage = document.querySelector(
+  ".registration-success-message"
+);
 
 registerSubmitForm.addEventListener("click", (e) => {
   let form = e.target.closest("form"),
@@ -25,60 +29,30 @@ registerSubmitForm.addEventListener("click", (e) => {
     }
 
     post(form_data_result).then((data) => {
-      console.log(data);
+      if (data.error === true) {
+        switch (data.code) {
+          case 0:
+            alert("An error has occurred. Please reload the page");
+            break;
+          case 1:
+            validationForm(form);
+            break;
+          case 2:
+            emailWrap.classList.add("field-error");
+            emailWrap.querySelector(".form-message").textContent =
+              "Email already exists";
+            break;
+          default:
+            validationForm(form);
+            break;
+        }
+      } else {
+        registrationSuccessMessage.classList.remove("is-hidden");
+        globalForm.classList.add("is-hidden");
+      }
     });
   }
 });
-
-// $(document).on("click", ".register-submit-form", function () {
-//   let form = $(this).closest("form"),
-//     email = $("#account_email"),
-//     emailWrap = email.parent();
-
-//   let form_data = new FormData();
-//   form_data.append("action", "RegisterUser");
-//   form_data.append("form", form.serialize());
-
-//   // if (!validationForm(form)) {
-//   $.ajax({
-//     url: "/wp-admin/admin-ajax.php",
-//     type: "POST",
-//     contentType: false,
-//     processData: false,
-//     data: form_data,
-//     beforeSend: function () {
-//       form.css("opacity", ".5").css("pointer-events", "none");
-//     },
-//     success: function (data) {
-//       console.log(data);
-
-//       form.css("opacity", "1").css("pointer-events", "all");
-//       if (data.error === true) {
-//         switch (data.code) {
-//           case 0:
-//             alert("error_plz_reload");
-//             break;
-//           case 1:
-//             validationForm(form);
-//             break;
-//           case 2:
-//             emailWrap
-//               .addClass("field-error")
-//               .find(".form-message")
-//               .text("email_exists");
-//             break;
-//           default:
-//             validationForm(form);
-//             break;
-//         }
-//       } else {
-//         $(".registration-success-message").removeClass("is-hidden");
-//         $(".registration-form").addClass("is-hidden");
-//       }
-//     },
-//   });
-//   // }
-// });
 
 $(document).on("click", ".login-submit-form", function () {
   let form = $(this).closest("form"),
