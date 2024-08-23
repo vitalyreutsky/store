@@ -8,7 +8,7 @@ class AccountPage
     {
         add_action('init', [$this, 'accountSettings']);
 
-        add_role('cosmetolog','Cosmetologist', array() );
+        add_role('cosmetolog', 'Cosmetologist', array());
 
         add_action('wp_ajax_ChangeUserProfile', [$this, 'ChangeUserProfile']);
         add_action('wp_ajax_nopriv_ChangeUserProfile', [$this, 'ChangeUserProfile']);
@@ -39,7 +39,8 @@ class AccountPage
         });
     }
 
-    public static function ChangeUserProfile() {
+    public static function ChangeUserProfile()
+    {
         $data = [];
         parse_str($_POST['form'], $data);
 
@@ -90,11 +91,11 @@ class AccountPage
                         update_user_meta($user_id, "billing_last_name", $billing_last_name);
                         update_user_meta($user_id, "billing_email", $billing_email);
                         update_user_meta($user_id, "billing_phone", $billing_phone);
-                        update_user_meta( $user_id, "billing_country", $billing_country );
-                        update_user_meta( $user_id, "billing_state", $billing_state );
-                        update_user_meta( $user_id, "billing_postcode", $billing_postcode );
-                        update_user_meta( $user_id, "billing_address_1", $billing_address_1 );
-                        update_user_meta( $user_id, "billing_city", $billing_city );
+                        update_user_meta($user_id, "billing_country", $billing_country);
+                        update_user_meta($user_id, "billing_state", $billing_state);
+                        update_user_meta($user_id, "billing_postcode", $billing_postcode);
+                        update_user_meta($user_id, "billing_address_1", $billing_address_1);
+                        update_user_meta($user_id, "billing_city", $billing_city);
 
                         update_user_meta($user_id, "city_salon", $salon_city);
                         update_user_meta($user_id, "address_salon", $salon_address_1);

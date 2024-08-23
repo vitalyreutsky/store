@@ -1,4 +1,5 @@
 <?php
+
 /**
  * My Account page
  *
@@ -17,7 +18,7 @@
 
 use App\WooCommerce\Helpers;
 
-defined( 'ABSPATH' ) || exit; ?>
+defined('ABSPATH') || exit; ?>
 
 
 <div class="view" style="padding-top: 140px">
@@ -34,7 +35,7 @@ defined( 'ABSPATH' ) || exit; ?>
                         <div class="not-approved-account__wrapper">
                             <p><?php _e('Your account is not verified as "Cosmetologist", please wait for account verification.', 'onmacabim'); ?></p>
                         </div>
-                    <?php endif;
+                <?php endif;
                 endif;
 
                 do_action('woocommerce_account_content');
@@ -43,4 +44,3 @@ defined( 'ABSPATH' ) || exit; ?>
         </div>
     </div>
 </div>
-

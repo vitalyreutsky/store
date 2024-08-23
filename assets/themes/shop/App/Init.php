@@ -21,6 +21,7 @@ final class init
 			WooCommerce\Cart::class,
 			WooCommerce\Checkout::class,
 			WooCommerce\AccountPage::class,
+			Auth\Auth::class,
 			Options\Options::class,
 			Base\Bootstrap::class,
 			Base\DisableXmlRPC::class,
