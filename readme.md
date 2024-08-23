@@ -1,1 +1,1 @@
-# My wordpress theme
+# Test store for practicing on woocommerce
