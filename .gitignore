@@ -1,0 +1,68 @@
+# WordPress #
+############
+wp-cli.local.yml
+sitemap.xml
+sitemap.xml.gz
+wp-config.php
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins", "plugins", "themes" directory
+assets/*
+!assets/plugins
+!assets/plugins/woocommerce/
+!assets/themes/
+!assets/themes/*/assets
+
+# ignore these plugins
+assets/plugins/hello.php
+
+# ignore specific themes
+assets/themes/twenty*/
+
+# Logs and databases #
+######################
+logs/
+*.log
+*.sql
+*.sqlite
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.bz2
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+*.tgz
+!wp-includes/**/*.gz
+
+# OS generated files #
+######################
+.DS_Store*
+ehthumbs.db
+Thumbs.db
+._*
+
+# Vim generated files #
+######################
+*.un~
+
+# SASS #
+##########
+.sass-cache
+
+#IDEA
+.idea
+
+#npm
+#############
+assets/themes/*/webpack/node_modules
+
+# Temporary folders
+tmp/
+temp/
+.htaccess

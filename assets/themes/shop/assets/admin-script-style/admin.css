@@ -1,0 +1,7 @@
+html :where(.wp-block) {
+    max-width: 1200px !important;
+}
+
+.block-editor-inserter__preview-container {
+    display: none !important;
+}

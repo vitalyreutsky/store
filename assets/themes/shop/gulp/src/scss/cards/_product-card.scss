@@ -1,0 +1,44 @@
+.product-card {
+  border: 1px solid #000;
+
+  &__image {
+    min-height: 200px;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px;
+  }
+
+  &__name,
+  &__desc {
+    margin: 0;
+  }
+
+  &__btns {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__btn {
+    &.in-cart {
+      pointer-events: none;
+      opacity: 0.2;
+    }
+
+    &.remove-from-cart {
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+  }
+}
